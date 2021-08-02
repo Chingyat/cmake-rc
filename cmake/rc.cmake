@@ -50,8 +50,7 @@ function(add_resource name)
     VERBATIM
   )
 
-  add_library(${name} ${RC_SOURCE})
-  target_include_directories(${name}
-    INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/rc_gen
-    )
+  add_library(${name} INTERFACE)
+  target_sources(${name} INTERFACE ${RC_SOURCE})
+  target_include_directories(${name} INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/rc_gen)
 endfunction()
